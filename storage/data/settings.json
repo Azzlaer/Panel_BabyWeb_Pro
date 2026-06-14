@@ -1,0 +1,31 @@
+{
+    "site_mode": "pro",
+    "site_title": "MU Online S1 - Registro",
+    "site_description": "Servidor privado MU Online Season 1",
+    "maintenance_mode": false,
+    "maintenance_message": "Estamos preparando la apertura del servidor.",
+    "background_mode": "none",
+    "background_image": "assets\/media\/background.jpg",
+    "background_video": "assets\/media\/background.mp4",
+    "background_youtube_id": "https:\/\/youtu.be\/OnRbmdDg1CE?list=RDOnRbmdDg1CE",
+    "background_overlay_opacity": 0.65,
+    "discord_webhook_enabled": true,
+    "discord_webhook_url": "https:\/\/discord.com\/api\/webhooks\/1514845046820573356\/WCbj6vrHaBNs7O7LQSJgdNNmKC1zZJ-kTyLMPv4Q2BJygR6zLb3zQlSs0waopRoOhO-q",
+    "modules": {
+        "register": true,
+        "ranking": false,
+        "online": false,
+        "server_status": false,
+        "downloads": false,
+        "news": false,
+        "events": false,
+        "discord_widget": true
+    },
+    "downloads": {
+        "client_url": "#",
+        "patch_url": "#",
+        "launcher_url": "#",
+        "client_version": "Season 1 - v1.0.0",
+        "client_size": "1.4 GB"
+    }
+}
