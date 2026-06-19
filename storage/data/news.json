@@ -1,14 +1,14 @@
 [
   {
+    "id": "welcome",
+    "enabled": true,
+    "pinned": true,
     "title": "Apertura oficial del servidor",
-    "date": "2026-06-12",
+    "date": "2026-06-17",
     "tag": "Noticia",
-    "content": "El continente de MU abre sus puertas. Crea tu cuenta y prepárate para la aventura."
-  },
-  {
-    "title": "Evento de bienvenida",
-    "date": "2026-06-12",
-    "tag": "Evento",
-    "content": "Durante la primera semana tendremos recompensas especiales para nuevos aventureros."
+    "emoji": "📰",
+    "image": "",
+    "format": "bbcode",
+    "content": "[b]Bienvenido al continente de MU Online.[/b]\nCrea tu cuenta, descarga el cliente y prepárate para la aventura.\n\n[color=#ffd28a]Que comience la batalla.[/color] ⚔️"
   }
 ]

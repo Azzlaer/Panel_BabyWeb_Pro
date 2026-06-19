@@ -27,6 +27,15 @@ function default_settings(): array
             'events' => MODULE_EVENTS_ENABLED,
             'discord_widget' => MODULE_DISCORD_WIDGET_ENABLED,
         ],
+        'layout_preset' => 'classic_center',
+        'layout_custom_enabled' => false,
+        'layout_zones' => [
+            'top' => [],
+            'left' => ['server_status','ranking'],
+            'center' => ['register'],
+            'right' => ['online','events','downloads','news'],
+            'bottom' => [],
+        ],
         'downloads' => [
             'client_url' => DOWNLOAD_CLIENT_URL,
             'patch_url' => DOWNLOAD_PATCH_URL,

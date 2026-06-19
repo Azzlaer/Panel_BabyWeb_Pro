@@ -39,8 +39,33 @@ try {
     $emailExists = (int)$db->scalar('SELECT COUNT(*) FROM MEMB_INFO WHERE mail_addr = ?', [$email]);
     if ($emailExists > 0) fail_reg($ip, 'El email ya está registrado.');
 
-    $sql = "INSERT INTO MEMB_INFO (memb___id,memb__pwd,memb_name,sno__numb,post_code,addr_info,addr_deta,tel__numb,phon_numb,mail_addr,fpas_ques,fpas_answ,job__code,appl_days,modi_days,out__days,true_days,mail_chek,bloc_code,ctl1_code,AccountLevel,AccountExpireDate,BBless,BSoul,BLife,BChaos,BCreation,BGuardian,BHarmony,BRefin,BLowRefin,BGemstone,BPickBless,BPickSoul,BPickLife,BPickChaos,BPickCreation,BPickGuardian,BPickHarmony,BPickRefin,BPickLowRefin,BPickGemstone,hwid,auth2fa,Cash,Gold) VALUES (?,?,?,?,NULL,NULL,NULL,NULL,NULL,?,NULL,NULL,NULL,GETDATE(),GETDATE(),NULL,GETDATE(),'0',?,?,?,?,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'0',0,?,?)";
-    $db->query($sql, [$username,$password,$name,DEFAULT_SNO_NUMBER,$email,DEFAULT_BLOC_CODE,DEFAULT_CTL1_CODE,DEFAULT_ACCOUNT_LEVEL,DEFAULT_EXPIRE_DATE,DEFAULT_CASH,DEFAULT_GOLD]);
+    /**
+     * MEMB_INFO standard compatible con la SQL enviada:
+     * MuOnline.dbo.MEMB_INFO sin columnas Cash, Gold, Jewels, hwid ni auth2fa.
+     */
+    $sql = "INSERT INTO MEMB_INFO
+        (memb___id, memb__pwd, memb_name, sno__numb,
+         post_code, addr_info, addr_deta, tel__numb, phon_numb,
+         mail_addr, fpas_ques, fpas_answ, job__code,
+         appl_days, modi_days, out__days, true_days,
+         mail_chek, bloc_code, ctl1_code, AccountLevel, AccountExpireDate)
+        VALUES
+        (?, ?, ?, ?,
+         NULL, NULL, NULL, NULL, NULL,
+         ?, NULL, NULL, NULL,
+         GETDATE(), GETDATE(), NULL, GETDATE(),
+         '0', ?, ?, ?, ?)";
+    $db->query($sql, [
+        $username,
+        $password,
+        $name,
+        DEFAULT_SNO_NUMBER,
+        $email,
+        DEFAULT_BLOC_CODE,
+        DEFAULT_CTL1_CODE,
+        DEFAULT_ACCOUNT_LEVEL,
+        DEFAULT_EXPIRE_DATE
+    ]);
     mark_registration_ip($ip);
     write_log('register.log', 'Cuenta creada', ['user'=>$username,'email'=>$email,'ip'=>$ip]);
     discord_notify_register($username, $email, $ip);

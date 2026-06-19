@@ -5,8 +5,8 @@
  * Muchas opciones tambien pueden administrarse desde el panel admin.
  */
 
-define('APP_NAME', 'MU Online S1');
-define('APP_VERSION', '2.0.0');
+define('APP_NAME', 'MU Online');
+define('APP_VERSION', '2.2.0');
 define('APP_TIMEZONE', 'America/Santiago');
 date_default_timezone_set(APP_TIMEZONE);
 
@@ -17,7 +17,7 @@ date_default_timezone_set(APP_TIMEZONE);
  */
 define('SITE_MODE', 'pro'); // simple | pro
 
-define('SITE_TITLE', 'MU Online S1 - Registro');
+define('SITE_TITLE', 'MU Online - Registro');
 define('SITE_DESCRIPTION', 'Servidor privado MU Online Season 1');
 define('SITE_KEYWORDS', 'mu online, season 1, servidor privado, mmorpg');
 
@@ -31,9 +31,9 @@ define('DB_DRIVER', 'auto'); // auto | sqlsrv | odbc
 
 define('DB_HOST', '127.0.0.1');
 define('DB_PORT', '1433');
-define('DB_NAME', 'MuOnlineS1');
-define('DB_USER', 'muserver');
-define('DB_PASS', '28390Aiw*');
+define('DB_NAME', 'MuOnline');
+define('DB_USER', 'sa');
+define('DB_PASS', 'TU_PASSWORD_SQL');
 
 /**
  * ODBC sin DSN: usa Driver instalado en Windows.
@@ -68,8 +68,14 @@ define('DEFAULT_BLOC_CODE', '0');
 define('DEFAULT_CTL1_CODE', '0');
 define('DEFAULT_ACCOUNT_LEVEL', 0);
 define('DEFAULT_EXPIRE_DATE', '1900-01-01 00:00:00');
-define('DEFAULT_CASH', 0);
-define('DEFAULT_GOLD', 0);
+
+/**
+ * Perfil de tabla MEMB_INFO.
+ * standard = tabla clasica MU Online sin Cash/Gold/Joyas/HWID.
+ * extended = tabla personalizada con Cash/Gold/Joyas/HWID/Auth2FA.
+ * Para la SQL enviada el valor correcto es standard.
+ */
+define('MEMB_INFO_PROFILE', 'standard'); // standard | extended
 
 /**
  * Captcha local.
@@ -89,7 +95,7 @@ define('BLOCK_MINUTES', 30);
  * Discord Webhook.
  */
 define('DISCORD_WEBHOOK_ENABLED', false);
-define('DISCORD_WEBHOOK_URL', '');
+define('DISCORD_WEBHOOK_URL', 'PEGAR_AQUI_TU_WEBHOOK_DE_DISCORD');
 define('DISCORD_HIDE_EMAIL', true);
 define('DISCORD_HIDE_IP', false);
 
